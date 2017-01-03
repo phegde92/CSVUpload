@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" ng-app="LunchCheck">
+  <head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+    </style>
+  </head>
+   <script src="angular.js"></script>
+    <script src="app.js"></script>
+<body ng-controller="LunchCheckController">
+   <div class="container" >
+     <h1>Upload CSV</h1><b> Please select a CSV File</b>
+         <div class="form-group" >
+             <input id="lunch-menu" type="text" style="{{borderColor}}"
+             class="form-control" ng-model="menu" ng-keyup="checkIfTooMuch()">
+         </div>
+         <div class="form-group">
+             <button class="btn btn-default" ng-click="printMessage()">Check If Too Much</button>
+         </div>
+         <div class="form-group message" style="{{fontColor}}" >
+           {{message}}
+         </div>
+   </div>
+
+   <table class="table">
+                        <thead>
+                            <tr>
+                                <th width="50%">Name</th>
+                                <th ng-show="uploader.isHTML5">Size</th>
+                                <th ng-show="uploader.isHTML5">Progress</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+   </table>
+
+
+<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/2.2.0/angularfire.min.js"></script>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDaBQAxxlFQREyG6NX5MOcD-isIOwPNj84",
+    authDomain: "testfinal-67da5.firebaseapp.com",
+    databaseURL: "https://testfinal-67da5.firebaseio.com",
+    storageBucket: "testfinal-67da5.appspot.com",
+    messagingSenderId: "671323819670"
+  };
+  firebase.initializeApp(config);
+</script>
+</body>
+</html>
